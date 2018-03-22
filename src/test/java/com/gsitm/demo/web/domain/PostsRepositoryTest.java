@@ -2,7 +2,9 @@ package com.gsitm.demo.web.domain;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.After;
@@ -48,5 +50,23 @@ public class PostsRepositoryTest {
 		assertThat(posts.getTitle(), is("테스트 게시글"));
 		assertThat(posts.getContent(), is("테스트 본문"));
 		
+	}
+	
+	@Test
+	public void BaseTimeEntity_등록() {
+		//given
+		LocalDateTime now = LocalDateTime.now();
+		postsRepository.save(Posts.builder()
+				.title("테스트 게시글")
+				.content("텍스트 본문")
+				.author("테스터")
+				.build());
+		//when
+		List<Posts> postsList = postsRepository.findAll();
+		
+		//then
+		Posts posts = postsList.get(0);
+		assertTrue(posts.getCreatedDate().isAfter(now));
+		assertTrue(posts.getModifiedDate().isAfter(now));
 	}
 }
