@@ -1,27 +1,56 @@
-.gradle
+# Directories #
 /build/
-!gradle/wrapper/gradle-wrapper.jar
-/out
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
+/build-ci/
+/deploy/
+/bin/
+target/
 .idea
-*.iws
-*.iml
-*.ipr
+classes/
+META-INF/
 
-### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+# OS Files #
+.DS_Store
+ *.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.db
+
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db 
+
+# Folder config file
+Desktop.ini
+
+######################
+# OSX
+######################
+.DS_Store
+
+# Thumbnails
+._*
+
+######################
+# Eclipse
+######################
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+.loadpath
+/.settings/
+/.gradle/
+/.externalToolBuilders/
+.project
+.classpath
+.springBeans
