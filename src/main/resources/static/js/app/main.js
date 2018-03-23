@@ -12,6 +12,9 @@ var main = {
 					content: $('#content').val()
 			};
 			
+			console.log(data);
+			console.log(JSON.stringify(data));
+			
 			$.ajax({
 				type: 'POST',
 				url: '/posts',
