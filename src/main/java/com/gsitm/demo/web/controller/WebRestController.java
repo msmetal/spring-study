@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gsitm.demo.web.domain.posts.PostsRepository;
 import com.gsitm.demo.web.domain.posts.PostsSaveRequestDto;
 import com.gsitm.demo.web.service.PostsService;
 
