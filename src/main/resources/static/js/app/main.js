@@ -27,7 +27,7 @@ var main = {
 			})
 			.fail(function(error) {
 				// handle request failures
-				console.log(error);
+				console.error(error);
 				alert('실패 하였습니다.');
 			})
 			.done(function(data) {
