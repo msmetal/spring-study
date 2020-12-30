@@ -13,6 +13,8 @@ import com.gsitm.demo.web.domain.posts.Posts;
 import com.gsitm.demo.web.domain.posts.PostsRepository;
 import com.gsitm.demo.web.domain.posts.PostsSaveRequestDto;
 
+import javax.transaction.Transactional;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PostsServiceTest {
@@ -27,7 +29,8 @@ public class PostsServiceTest {
 	public void cleanup() {
 		postsRepository.deleteAll();
 	}
-	
+
+	@Transactional
 	@Test
 	public void Dto데이터가_posts테이블에_저장() {
 		//give
@@ -38,10 +41,10 @@ public class PostsServiceTest {
 				.build();
 		
 		//when
-		postsService.save(dto);
+		long id = postsService.save(dto);
 		
 		//then
-		Posts posts = postsRepository.findAll().get(0);
+		Posts posts = postsRepository.getOne(id);
 		assertThat(posts.getTitle()).isEqualTo(dto.getTitle());
 		assertThat(posts.getContent()).isEqualTo(dto.getContent());
 		assertThat(posts.getAuthor()).isEqualTo(dto.getAuthor());
