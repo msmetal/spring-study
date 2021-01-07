@@ -1,5 +1,6 @@
-package com.demo.api.review;
+package com.demo.api.review.representation;
 
+import com.demo.domain.review.Review;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -7,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Getter
-public class ReviewDetail {
+public class ReviewDetailResponse {
 
 	private Long reviewId;
 	private int purchaseCount;
@@ -17,7 +18,7 @@ public class ReviewDetail {
 	private int likeCount;
 	private boolean liked;
 
-	public ReviewDetail(Review review) {
+	public ReviewDetailResponse(Review review) {
 		reviewId = review.getId();
 		purchaseCount = review.getPurchaseCount();
 		score = review.getScore();

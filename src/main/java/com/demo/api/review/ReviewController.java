@@ -1,30 +1,31 @@
 package com.demo.api.review;
 
-import lombok.AllArgsConstructor;
+import com.demo.api.review.representation.ReviewDetailResponse;
+import com.demo.api.review.representation.ReviewPageRequest;
+import com.demo.api.review.representation.ReviewRegisterRequest;
+import com.demo.api.review.representation.ReviewSortType;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import static org.springframework.data.domain.Sort.Direction.DESC;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@AllArgsConstructor
-@RequestMapping("/api/v1/review")
+@RequiredArgsConstructor
+@RequestMapping("/api/v1")
 public class ReviewController {
 
-	private ReviewService reviewService;
-	
-	@PostMapping("/")
+	private final ReviewRegisterService reviewRegisterService;
+	private final FindReviewService findReviewService;
+
+	@PostMapping("/review")
 	public Long create(ReviewRegisterRequest request) {
-		return reviewService.create(request);
+		return reviewRegisterService.create(request);
 	}
 
-	@GetMapping("/")
-	public Page<ReviewDetail> list(@PageableDefault(size = 20, sort = "id", direction = DESC) Pageable pageable) {
-		return reviewService.list(pageable);
+	@GetMapping("/{productId}/reviews")
+	public Page<ReviewDetailResponse> list(@PathVariable("productId") Long productId,
+										   @RequestParam(defaultValue = "0") int page,
+										   @RequestParam(defaultValue = "20") int size,
+										   @RequestParam(defaultValue = "CREATE") ReviewSortType sortType) {
+		return findReviewService.getDetailList(productId, new ReviewPageRequest(page, size, sortType.getProperty(), sortType.getDirection()));
 	}
 }

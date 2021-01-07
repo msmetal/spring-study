@@ -1,25 +1,23 @@
 package com.demo.api.review;
 
+import com.demo.api.review.representation.ReviewRegisterRequest;
+import com.demo.domain.review.Review;
+import com.demo.domain.review.ReviewRegister;
+import com.demo.domain.review.ReviewRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
-public class ReviewService {
+public class ReviewRegisterService {
 
-	private ReviewRepository reviewRepository;
+	private final ReviewRepository reviewRepository;
 	
 	@Transactional
 	public Long create(ReviewRegisterRequest request) {
 		ReviewRegister register = ReviewRegister.of(request);
 		return reviewRepository.save(Review.of(register)).getId();
-	}
-
-	@Transactional(readOnly = true)
-	public Page<ReviewDetail> list(Pageable pageable) {
-		return reviewRepository.findAll(pageable).map(ReviewDetail::new);
 	}
 }

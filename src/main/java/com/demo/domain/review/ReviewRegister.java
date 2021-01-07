@@ -1,5 +1,6 @@
-package com.demo.api.review;
+package com.demo.domain.review;
 
+import com.demo.api.review.representation.ReviewRegisterRequest;
 import lombok.Builder;
 import lombok.Getter;
 

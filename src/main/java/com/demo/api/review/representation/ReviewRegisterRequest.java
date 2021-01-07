@@ -1,4 +1,4 @@
-package com.demo.api.review;
+package com.demo.api.review.representation;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
