@@ -1,17 +1,9 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import ReviewComponent from '@/components/ReviewComponent'
+import VueRouter from 'vue-router'
+import {routes} from './routes'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {name: 'Reviews', path: '/reviews', component: ReviewComponent}
-  ]
+export default new VueRouter({
+  routes
 })
