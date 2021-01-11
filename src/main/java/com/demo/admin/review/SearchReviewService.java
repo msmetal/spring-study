@@ -1,6 +1,6 @@
 package com.demo.admin.review;
 
-import com.demo.api.review.representation.ReviewCondition;
+import com.demo.domain.review.ReviewSearchCondition;
 import com.demo.domain.review.ReviewQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -13,7 +13,7 @@ public class SearchReviewService {
 
     private final ReviewQueryService reviewQueryService;
 
-    public Page<ReviewResponse> search(ReviewCondition condition, Pageable pageable) {
+    public Page<ReviewResponse> search(ReviewSearchCondition condition, Pageable pageable) {
         return reviewQueryService.search(condition, pageable).map(ReviewResponse::new);
     }
 

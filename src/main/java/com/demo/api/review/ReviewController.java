@@ -3,7 +3,7 @@ package com.demo.api.review;
 import com.demo.api.review.representation.ReviewDetailResponse;
 import com.demo.api.review.representation.ReviewPageRequest;
 import com.demo.api.review.representation.ReviewRegisterRequest;
-import com.demo.api.review.representation.ReviewSortType;
+import com.demo.domain.review.ReviewSortType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;

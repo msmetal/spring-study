@@ -1,4 +1,4 @@
-package com.demo.api.review.representation;
+package com.demo.domain.review;
 
 import com.querydsl.core.BooleanBuilder;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import static com.demo.domain.product.QProduct.product;
 import static com.demo.domain.review.QReview.review;
 
 @Setter
-public class ReviewCondition {
+public class ReviewSearchCondition {
 
     private Long reviewId;
     private Long orderId;

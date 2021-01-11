@@ -1,4 +1,4 @@
-package com.demo.api.review.representation;
+package com.demo.domain.review;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

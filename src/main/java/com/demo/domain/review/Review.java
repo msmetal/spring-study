@@ -32,7 +32,7 @@ public class Review extends BaseTimeEntity {
     @Column(name = "productId", updatable = false, insertable = false)
     private Long productId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "productId")
     private Product product;
 

@@ -1,6 +1,5 @@
 package com.demo.domain.review;
 
-import com.demo.api.review.representation.ReviewCondition;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +18,7 @@ public class ReviewQueryService {
     }
 
     @Transactional(readOnly = true)
-    public Page<Review> search(ReviewCondition condition, Pageable pageable) {
+    public Page<Review> search(ReviewSearchCondition condition, Pageable pageable) {
         return reviewRepository.searchAll(condition, pageable);
     }
 }
