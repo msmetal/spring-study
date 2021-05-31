@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import VuetifyGridComponent from "@/components/VuetifyGridComponent";
+import ToastGridComponent from "@/components/ToastGridComponent";
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/vuetifyGrid',
     name: 'VuetifyGrid',
     component: VuetifyGridComponent
+  },
+  {
+    path: '/toastGrid',
+    name: 'ToastGrid',
+    component: ToastGridComponent
   },
   {
     path: '/about',

@@ -3,6 +3,7 @@
     <h1>Hello App!</h1>
     <p>
       <router-link to="/vuetifyGrid">Vuetify Grid</router-link>
+      <router-link to="/toastGrid">Toast Grid</router-link>
     </p>
     <router-view></router-view>
   </div>

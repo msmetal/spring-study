@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,6 +21,7 @@ public class ReviewAdminController {
 
     @GetMapping
     public ResponseEntity<Page<ReviewResponse>> search(ReviewSearchCondition condition,
+                                                       @RequestParam(value = "photoReview") boolean photoReview,
                                                        @PageableDefault(sort = "createdDate", size = 20, direction = Sort.Direction.DESC) Pageable pageable) {
         return ResponseEntity.ok(searchReviewService.search(condition, pageable));
     }

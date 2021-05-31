@@ -45,6 +45,10 @@ public class Review extends BaseTimeEntity {
     @Column(name = "purchaseCount")
     private int purchaseCount;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "displayStatus", nullable = false)
+    private ReviewDisplayStatus displayStatus;
+
     @CreatedDate
     private LocalDateTime createdDate;
 
